@@ -1,0 +1,52 @@
+.block {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px 24px;
+  grid-template-areas:
+    "A B"
+    "A C";
+  padding-bottom: 24px;
+}
+.icon {
+  grid-area: A;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #d5e4f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 40px;
+  color: #212830;
+}
+
+.username {
+  grid-area: B;
+  align-self: end;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+  color: #333333;
+}
+.link {
+  grid-area: C;
+  align-self: start;
+  display: flex;
+  gap: 16px;
+}
+.link a {
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #5558fa;
+}
+.hr {
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
