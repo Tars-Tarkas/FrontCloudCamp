@@ -13,6 +13,8 @@ export const Input: FC<InputProps> = ({ name, error, label, ...rest }) => {
       <input
         aria-invalid={error ? "true" : "false"}
         name={name}
+        type={name}
+        id={name}
         {...rest}
         className={styles.input}
       />

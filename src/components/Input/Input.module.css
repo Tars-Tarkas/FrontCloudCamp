@@ -1,5 +1,6 @@
 .block {
   max-width: 400px;
+  margin-bottom: 24px;
 }
 .label {
   display: block;
@@ -23,9 +24,13 @@
 }
 .error {
   display: block;
+  font-size: 12px;
+  font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: red;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.48);
+}
+
+.label {
   margin-bottom: 8px;
 }

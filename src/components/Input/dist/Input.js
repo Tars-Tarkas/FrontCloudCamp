@@ -28,6 +28,6 @@ exports.Input = function (_a) {
     var name = _a.name, error = _a.error, label = _a.label, rest = __rest(_a, ["name", "error", "label"]);
     return (React.createElement("div", { className: Input_module_css_1["default"].block },
         label && (React.createElement("label", { htmlFor: name, className: Input_module_css_1["default"].label }, label)),
-        React.createElement("input", __assign({ "aria-invalid": error ? "true" : "false", name: name }, rest, { className: Input_module_css_1["default"].input })),
+        React.createElement("input", __assign({ "aria-invalid": error ? "true" : "false", name: name, type: name, id: name }, rest, { className: Input_module_css_1["default"].input })),
         error && (React.createElement("span", { role: "alert", className: Input_module_css_1["default"].error }, error))));
 };
