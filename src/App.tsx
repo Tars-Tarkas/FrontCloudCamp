@@ -7,8 +7,8 @@ import { StepOne } from "./pages/StepOne/StepOne";
 export const App: FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/step1" element={<StepOne />} />
+      <Route path="*" element={<Main />} />
+      <Route path="/" element={<StepOne />} />
     </Routes>
   );
 };

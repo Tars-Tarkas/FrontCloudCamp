@@ -22,9 +22,11 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 exports.__esModule = true;
-exports.Button = void 0;
-var Button_module_css_1 = require("./Button.module.css");
-exports.Button = function (props) {
-    var _a = props.tag, tag = _a === void 0 ? "Начать" : _a, _b = props.theme, theme = _b === void 0 ? "outline" : _b, rest = __rest(props, ["tag", "theme"]);
-    return (React.createElement("button", __assign({ type: "submit" }, rest, { className: [Button_module_css_1["default"]["button"], Button_module_css_1["default"]["button-" + theme]].join(" ") }), tag));
+exports.Select = void 0;
+exports.Select = function (_a) {
+    var name = _a.name, children = _a.children, error = _a.error, label = _a.label, rest = __rest(_a, ["name", "children", "error", "label"]);
+    return (React.createElement("div", null,
+        label && React.createElement("label", { htmlFor: name }, label),
+        React.createElement("select", __assign({ name: name }, rest), children),
+        error && React.createElement("span", { role: "alert" }, error)));
 };

@@ -1,14 +1,15 @@
 import * as yup from "yup";
-import { InferType, ObjectSchema } from "yup";
-import { IMainInput } from "./interface";
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-export const MainSchema: any = yup.object().shape({
+export const validationScheme = yup.object().shape({
   phone: yup
     .string()
-    .matches(phoneRegExp, "Invalid phone.")
-    .required("Required"),
-  email: yup.string().email("Invalid email address").required("Required"),
+    .matches(phoneRegExp, "Некорректно заполнен номер телефона")
+    .required("Введите номер телефона"),
+  email: yup
+    .string()
+    .email("Некорректно заполнен адрес электронной почты")
+    .required("Введите адрес электронно почты"),
 });

@@ -3,13 +3,12 @@ import { IButton } from "./interface";
 import styles from "./Button.module.css";
 
 export const Button: FC<IButton> = (props: IButton) => {
-  const { tag = "Начать", theme = "outline", handleCkick, isDisabled } = props;
+  const { tag = "Начать", theme = "outline", ...rest } = props;
 
   return (
     <button
       type="submit"
-      onClick={handleCkick}
-      disabled={isDisabled}
+      {...rest}
       className={[styles[`button`], styles[`button-${theme}`]].join(" ")}
     >
       {tag}
