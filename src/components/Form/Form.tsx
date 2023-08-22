@@ -1,17 +1,13 @@
-import { FC } from "react";
+import { FC, FormHTMLAttributes } from "react";
 import styles from "./Form.module.css";
-import { IFormProps } from "./interface";
+export interface IFormProps extends FormHTMLAttributes<HTMLFormElement> {
+  children?: JSX.Element | JSX.Element[];
+  paddingstyle?: "main" | "step";
+}
 
-export const Form: FC<IFormProps> = ({
-  children,
-  paddingstyle,
-  ...rest
-}: IFormProps) => {
+export const Form: FC<IFormProps> = ({ children, ...rest }) => {
   return (
-    <form
-      className={[styles[`form`], styles[`form-${paddingstyle}`]].join(" ")}
-      {...rest}
-    >
+    <form {...rest} className={styles.form}>
       {children}
     </form>
   );

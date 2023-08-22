@@ -1,8 +1,20 @@
-import { FC } from "react";
-import { InputProps } from "./interface";
+import { FC, InputHTMLAttributes } from "react";
 import styles from "./Input.module.css";
 
-export const Input: FC<InputProps> = ({ name, error, label, ...rest }) => {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  type: string;
+  name: string;
+  label?: string;
+  error?: string;
+}
+
+export const Input: FC<InputProps> = ({
+  type,
+  name,
+  error,
+  label,
+  ...rest
+}) => {
   return (
     <div className={styles.block}>
       {label && (
@@ -12,8 +24,8 @@ export const Input: FC<InputProps> = ({ name, error, label, ...rest }) => {
       )}
       <input
         aria-invalid={error ? "true" : "false"}
-        name={name}
         type={name}
+        name={name}
         id={name}
         {...rest}
         className={styles.input}

@@ -23,10 +23,11 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 exports.__esModule = true;
 exports.Select = void 0;
+var Select_module_css_1 = require("./Select.module.css");
 exports.Select = function (_a) {
     var name = _a.name, children = _a.children, error = _a.error, label = _a.label, rest = __rest(_a, ["name", "children", "error", "label"]);
-    return (React.createElement("div", null,
-        label && React.createElement("label", { htmlFor: name }, label),
-        React.createElement("select", __assign({ name: name }, rest), children),
-        error && React.createElement("span", { role: "alert" }, error)));
+    return (React.createElement("div", { className: Select_module_css_1["default"].block },
+        label && (React.createElement("label", { htmlFor: name, className: Select_module_css_1["default"].label }, label)),
+        React.createElement("select", __assign({ name: name }, rest, { className: Select_module_css_1["default"].select }), children),
+        error && (React.createElement("span", { role: "alert", className: Select_module_css_1["default"].error }, error))));
 };

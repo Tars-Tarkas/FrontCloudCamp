@@ -1,7 +1,12 @@
 .block {
-  width: 100%;
+  position: relative;
 }
-.circle {
+.inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+/* .circle {
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -9,16 +14,59 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.step {
-  display: block;
+} */
+
+.step__done {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(85, 88, 250, 1);
 }
 
-.label {
+.step__inactive {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(166, 166, 166, 1);
+}
+.label__inactive {
   display: block;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px;
+  color: rgba(102, 102, 102, 1);
+}
+
+.item {
+  width: 16px;
+  text-align: center;
+  z-index: 100;
+}
+
+.label {
   color: rgba(85, 88, 250, 1);
+}
+.line__inactive {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  right: 4px;
+  height: 10px;
+  background-color: rgba(166, 166, 166, 1);
+}
+.line__active {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  right: 4px;
+  height: 10px;
+  width: 50%;
+  background-color: rgba(85, 88, 250, 1);
 }

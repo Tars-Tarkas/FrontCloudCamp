@@ -7,7 +7,6 @@
   grid-template-areas:
     "A B"
     "A C";
-  padding-bottom: 24px;
 }
 .icon {
   grid-area: A;
@@ -49,6 +48,6 @@
 .hr {
   background: rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.08);
-
+  margin-top: 24px;
   margin-bottom: 24px;
 }

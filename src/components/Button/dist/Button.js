@@ -26,5 +26,5 @@ exports.Button = void 0;
 var Button_module_css_1 = require("./Button.module.css");
 exports.Button = function (props) {
     var _a = props.tag, tag = _a === void 0 ? "Начать" : _a, _b = props.theme, theme = _b === void 0 ? "outline" : _b, rest = __rest(props, ["tag", "theme"]);
-    return (React.createElement("button", __assign({ type: "submit" }, rest, { className: [Button_module_css_1["default"]["button"], Button_module_css_1["default"]["button-" + theme]].join(" ") }), tag));
+    return (React.createElement("button", __assign({}, rest, { className: [Button_module_css_1["default"]["button"], Button_module_css_1["default"]["button-" + theme]].join(" ") }), tag));
 };

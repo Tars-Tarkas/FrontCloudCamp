@@ -1,46 +1,57 @@
-import { FC } from "react";
-import { useFormik } from "formik";
-import { validationScheme } from "./ypu.sheme";
-import { Layout } from "../../components/Layout/Layout";
-import { Form } from "../../components/Form/Form";
+import { FC, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./Main.module.css";
 import { Header } from "../../components/Header/Header";
-import { Input } from "../../components/Input/Input";
 import { Button } from "../../components/Button/Button";
 
-export const Main: FC = () => {
-  const { values, handleChange, handleBlur, handleSubmit, errors } = useFormik<{
-    phone: string;
-    email: string;
-  }>({
-    initialValues: { phone: "", email: "" },
-    validationSchema: validationScheme,
-    onSubmit: (values) => {},
-  });
+interface CustomElements extends HTMLFormControlsCollection {
+  phone: HTMLInputElement;
+  email: HTMLInputElement;
+}
 
+interface CustomForm extends HTMLFormElement {
+  readonly elements: CustomElements;
+}
+
+export const Main: FC = () => {
+  const navigate = useNavigate();
+  const handleSubmit = (e: FormEvent<CustomForm>) => {
+    e.preventDefault();
+    const target = e.currentTarget.elements;
+    const data = {
+      phone: target.phone.value,
+      email: target.email.value,
+    };
+    if (data) {
+      navigate("/stepone");
+    }
+  };
   return (
-    <Layout>
-      <Form paddingstyle="main" onSubmit={handleSubmit} autoComplete="off">
-        <Header />
-        <Input
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <Header />
+      <div className={styles.input__block}>
+        <label className={styles.label}>Номер телефона</label>
+        <input
+          className={styles.input}
+          type="phone"
           name="phone"
-          label="Номер телефона"
-          placeholder="+7 999 999-99-99"
-          value={values.phone}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.phone}
+          required
+          defaultValue="ddd"
         />
-        <Input
+      </div>
+      <div className={styles.input__block}>
+        <label className={styles.label}>Email</label>
+        <input
+          className={styles.input}
+          type="email"
           name="email"
-          label="Email"
-          placeholder="tim.jennings@example.com"
-          value={values.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.email}
+          required
+          defaultValue="ddd@ddd.er"
         />
-        <Button tag="Начать" theme="primary" />
-      </Form>
-    </Layout>
+      </div>
+      <div className={styles.btn}>
+        <Button tag="Начать" theme="primary" type="submit" />
+      </div>
+    </form>
   );
 };

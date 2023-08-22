@@ -25,6 +25,6 @@ exports.__esModule = true;
 exports.Form = void 0;
 var Form_module_css_1 = require("./Form.module.css");
 exports.Form = function (_a) {
-    var children = _a.children, paddingstyle = _a.paddingstyle, rest = __rest(_a, ["children", "paddingstyle"]);
-    return (React.createElement("form", __assign({ className: [Form_module_css_1["default"]["form"], Form_module_css_1["default"]["form-" + paddingstyle]].join(" ") }, rest), children));
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return (React.createElement("form", __assign({}, rest, { className: Form_module_css_1["default"].form }), children));
 };

@@ -1,12 +1,9 @@
 .form {
+  max-width: 900px;
+  margin: 0 auto;
   background-color: #ffffff;
   border-radius: 12px 12px 0px 0px;
   margin-top: 24px;
-}
 
-.form-main {
-  padding: 25px 24px 383px 24px;
-}
-.form-step {
   padding: 62px 110px 80px 110px;
 }
