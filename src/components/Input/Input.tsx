@@ -26,7 +26,6 @@ export const Input: FC<InputProps> = ({
         aria-invalid={error ? "true" : "false"}
         type={name}
         name={name}
-        id={name}
         {...rest}
         className={styles.input}
       />

@@ -10,3 +10,14 @@
   color: rgba(51, 51, 51, 1);
   margin-bottom: 8px;
 }
+.input__block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.advantages,
+.checkbox,
+.radiogroup {
+  margin-bottom: 24px;
+}

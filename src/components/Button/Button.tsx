@@ -3,7 +3,7 @@ import styles from "./Button.module.css";
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   tag?: string;
-  theme?: "primary" | "outline";
+  theme?: "primary" | "outline" | "delete" | "add";
 }
 
 export const Button: FC<IButton> = (props: IButton) => {
