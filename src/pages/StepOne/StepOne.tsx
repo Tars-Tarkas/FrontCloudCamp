@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from "./StepOne.module.css";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { validationScheme } from "./yup.sheme";
+import * as yup from "yup";
 import { Input } from "../../components/Input/Input";
 import { Select } from "../../components/Select/Select";
 import { Button } from "../../components/Button/Button";
@@ -10,6 +10,40 @@ import { Form } from "../../components/Form/Form";
 import { Stepper } from "../../components/Stepper/Stepper";
 
 export const StepOne: FC = () => {
+  const nicknameRegExp = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
+  const nameRegExp = /^[а-яА-Яa-zA-Z0-9]+$/;
+
+  const validationScheme = yup.object().shape({
+    nickname: yup
+      .string()
+      .max(30)
+      .matches(
+        nicknameRegExp,
+        "Некорректно заполнен, только буквы и цифры, макс. длина 30 символов"
+      )
+      .required("Введите никнайм"),
+    name: yup
+      .string()
+      .max(50)
+      .matches(
+        nameRegExp,
+        "Некорректно заполнен, только буквы, макс. длина 50 символов"
+      )
+      .required("Введите имя"),
+    sername: yup
+      .string()
+      .max(50)
+      .matches(
+        nameRegExp,
+        "Некорректно заполнен, только буквы, макс. длина 50 символов"
+      )
+      .required("Введите имя пользователя"),
+    sex: yup
+      .string()
+      .oneOf(["man", "woman"], "Не выбран пол")
+      .required("Выберите пол"),
+  });
+
   const navigate = useNavigate();
   const {
     values,
@@ -38,7 +72,6 @@ export const StepOne: FC = () => {
   };
   return (
     <Form
-      // onSubmit={handleSubmit}
       onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(e);

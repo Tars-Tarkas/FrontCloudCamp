@@ -69,7 +69,7 @@ export const StepTwo: FC = () => {
             <div key={item.id} className={styles.input__block}>
               <Input type={item.type} name={item.type} />
               <Button
-                theme="delete"
+                theme="close"
                 tag=""
                 type="button"
                 onClick={() => removeInput(item.id)}

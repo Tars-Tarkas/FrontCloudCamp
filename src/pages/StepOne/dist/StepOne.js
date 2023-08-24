@@ -4,17 +4,40 @@ exports.StepOne = void 0;
 var StepOne_module_css_1 = require("./StepOne.module.css");
 var react_router_dom_1 = require("react-router-dom");
 var formik_1 = require("formik");
-var yup_sheme_1 = require("./yup.sheme");
+var yup = require("yup");
 var Input_1 = require("../../components/Input/Input");
 var Select_1 = require("../../components/Select/Select");
 var Button_1 = require("../../components/Button/Button");
 var Form_1 = require("../../components/Form/Form");
 var Stepper_1 = require("../../components/Stepper/Stepper");
 exports.StepOne = function () {
+    var nicknameRegExp = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
+    var nameRegExp = /^[а-яА-Яa-zA-Z0-9]+$/;
+    var validationScheme = yup.object().shape({
+        nickname: yup
+            .string()
+            .max(30)
+            .matches(nicknameRegExp, "Некорректно заполнен, только буквы и цифры, макс. длина 30 символов")
+            .required("Введите никнайм"),
+        name: yup
+            .string()
+            .max(50)
+            .matches(nameRegExp, "Некорректно заполнен, только буквы, макс. длина 50 символов")
+            .required("Введите имя"),
+        sername: yup
+            .string()
+            .max(50)
+            .matches(nameRegExp, "Некорректно заполнен, только буквы, макс. длина 50 символов")
+            .required("Введите имя пользователя"),
+        sex: yup
+            .string()
+            .oneOf(["man", "woman"], "Не выбран пол")
+            .required("Выберите пол")
+    });
     var navigate = react_router_dom_1.useNavigate();
     var _a = formik_1.useFormik({
         initialValues: { nickname: "1", name: "", sername: "", sex: "Не выбрано" },
-        validationSchema: yup_sheme_1.validationScheme,
+        validationSchema: validationScheme,
         onSubmit: function (values, _a) {
             var setFieldValue = _a.setFieldValue;
             if (!isValidating) {
@@ -25,11 +48,7 @@ exports.StepOne = function () {
     var handelClickBack = function () {
         navigate("/");
     };
-    return (React.createElement(Form_1.Form
-    // onSubmit={handleSubmit}
-    , { 
-        // onSubmit={handleSubmit}
-        onSubmit: function (e) {
+    return (React.createElement(Form_1.Form, { onSubmit: function (e) {
             e.preventDefault();
             handleSubmit(e);
         } },

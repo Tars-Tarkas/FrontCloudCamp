@@ -63,7 +63,7 @@ exports.StepTwo = function () {
             arrayInput.map(function (item, index) {
                 return (React.createElement("div", { key: item.id, className: StepTwo_module_css_1["default"].input__block },
                     React.createElement(Input_1.Input, { type: item.type, name: item.type }),
-                    React.createElement(Button_1.Button, { theme: "delete", tag: "", type: "button", onClick: function () { return removeInput(item.id); } })));
+                    React.createElement(Button_1.Button, { theme: "close", tag: "", type: "button", onClick: function () { return removeInput(item.id); } })));
             }),
             React.createElement(Button_1.Button, { tag: "", type: "button", onClick: addInput, theme: "add" })),
         React.createElement("div", { className: StepTwo_module_css_1["default"].checkbox },
