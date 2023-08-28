@@ -1,0 +1,49 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-end;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.icon__block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  background-color: rgba(5, 174, 113, 0.15);
+  padding: 16px;
+  display: flex;
+  margin-top: 26px;
+  margin-bottom: 26px;
+}
+.title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+}
+.btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.04);
+  transition: all 0.5s ease;
+}
+.btn:hover {
+  background-color: rgba(179, 179, 179, 1);
+}
+.btn:hover svg {
+  fill: #fff;
+}

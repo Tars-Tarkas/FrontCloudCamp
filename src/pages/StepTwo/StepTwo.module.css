@@ -21,3 +21,29 @@
 .radiogroup {
   margin-bottom: 24px;
 }
+.addbtn {
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  background-color: #ffff;
+  border-radius: 4px;
+  border: 1.5px solid #5558fa;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.addbtn:hover {
+  background-color: #5558fa;
+}
+.addbtn:hover svg {
+  fill: #ffff;
+}
+.removebtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.removebtn:hover svg {
+  fill: rgba(166, 166, 166, 1);
+}

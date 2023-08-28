@@ -1,16 +1,15 @@
 import { FC, useEffect } from "react";
 import styles from "./Modal.module.css";
-import { Button } from "../Button/Button";
 
 export interface IModalProps {
   visible?: boolean;
-  content?: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
   onClose?: () => void;
 }
 
 export const Modal: FC<IModalProps> = ({
   visible,
-  content,
+  children,
   onClose,
 }: IModalProps) => {
   const onKeydown = ({ key }: KeyboardEvent) => {
@@ -25,11 +24,10 @@ export const Modal: FC<IModalProps> = ({
     return () => document.removeEventListener("keydown", onKeydown);
   });
 
-  if (!visible) return null;
+  // if (!visible) return null;
   return (
     <div className={styles.modal}>
-      <div className={styles.dialog}>{content}</div>
-      <Button theme="close" />
+      <div className={styles.dialog}>{children}</div>
     </div>
   );
 };
