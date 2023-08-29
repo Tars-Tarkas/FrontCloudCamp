@@ -1,8 +1,9 @@
 import { FC } from "react";
-import styles from "./ErrorContent.module.css";
+import styles from "./ErrorModal.module.css";
 import { Button } from "../Button/Button";
+import { Modal } from "../Modal/Modal";
 
-export const ErrorContent: FC = () => {
+export const ErrorModal: FC = () => {
   const icon_error = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,15 +32,19 @@ export const ErrorContent: FC = () => {
     </svg>
   );
   return (
-    <div className={styles.block}>
-      <div className={styles.header}>
-        <label className={styles.title}>Ошибка</label>
-        <button className={styles.btn}>{icon_close}</button>
+    <Modal>
+      <div className={styles.block}>
+        <div className={styles.header}>
+          <label className={styles.title}>Ошибка</label>
+          <button className={styles.btn} type="button">
+            {icon_close}
+          </button>
+        </div>
+        <div className={styles.icon__block}>
+          <span className={styles.icon}>{icon_error}</span>
+        </div>
+        <Button tag="Закрыть" theme="primary" type="button" />
       </div>
-      <div className={styles.icon__block}>
-        <span className={styles.icon}>{icon_error}</span>
-      </div>
-      <Button tag="Закрыть" theme="primary" />
-    </div>
+    </Modal>
   );
 };

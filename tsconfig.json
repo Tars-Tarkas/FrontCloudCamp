@@ -23,6 +23,7 @@
     "src/**/*.tsx",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "index.d.ts"
+    "index.d.ts",
+    "src/components/SuccessModal/SuccessModal.tsx"
   ]
 }

@@ -1,9 +1,10 @@
 import { FC } from "react";
-import styles from "./SuccessContent.module.css";
+import styles from "./SuccessModal.module.css";
 import { Button } from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "../Modal/Modal";
 
-export const SuccessContent: FC = () => {
+export const SuccessModal: FC = () => {
   const navigate = useNavigate();
   const icon_success = (
     <svg
@@ -24,10 +25,12 @@ export const SuccessContent: FC = () => {
     navigate("/");
   };
   return (
-    <div className={styles.block}>
-      <label className={styles.title}>Форма успешно отправлена</label>
-      <span className={styles.icon}>{icon_success}</span>
-      <Button tag="На главную" theme="primary" onClick={onClick} />
-    </div>
+    <Modal>
+      <div className={styles.block}>
+        <label className={styles.title}>Форма успешно отправлена</label>
+        <span className={styles.icon}>{icon_success}</span>
+        <Button tag="На главную" theme="primary" onClick={onClick} />
+      </div>
+    </Modal>
   );
 };
