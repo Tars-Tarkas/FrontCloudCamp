@@ -29,27 +29,32 @@ export const Main: FC = () => {
     }
   };
 
-  function maskPhone(value: any) {
-    value = value.replace(/\D/g, "");
-    value = value.replace(/^(\d{3})(\d)/g, "($1)$2");
-    value = value.replace(/(\d)(\d{4})$/, "$1-$2");
-    value = value;
-    //   .replace(/\D/g, "")
-    //   .match(/(\d{0,3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
-    return value;
-  }
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    // const value = maskPhone(e.target.value);
-    // setPhone("+7" + value);
-    // console.log(value);
     let x: RegExpMatchArray | null;
     x = e.target.value
       .replace(/\D/g, "")
-      .match(/(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+      .match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})(\d{0,3})/);
+
     if (x !== null) {
-      const value = "(" + x[1] + ") " + x[2] + "-" + x[3] + "-" + x[4];
-      setPhone(value);
+      if (!x[1]) {
+        e.target.value = "+";
+
+        return;
+      }
+
+      if (!x[2]) {
+        e.target.value = `+${x[1]}`;
+
+        return;
+      }
+
+      e.target.value =
+        `+${x[1]} (${x[2]}` +
+        (x[3] ? `) ${x[3]}` : "") +
+        (x[4] ? `-${x[4]}` : "") +
+        (x[5] ? `-${x[5]}` : "") +
+        (x[6] ? `-${x[6]}` : "");
+      // setPhone(e.target.value);
     }
   };
   return (
@@ -59,12 +64,12 @@ export const Main: FC = () => {
         <label className={styles.label}>Номер телефона</label>
         <input
           className={styles.input}
-          type="phone"
+          type="tel"
           name="phone"
           required
-          // defaultValue="1"
           onChange={(e) => handleChange(e)}
           value={phone}
+          placeholder="+7 999 999-99-99"
         />
       </div>
       <div className={styles.input__block}>
