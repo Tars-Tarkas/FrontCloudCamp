@@ -24,7 +24,17 @@ var __rest = (this && this.__rest) || function (s, e) {
 exports.__esModule = true;
 exports.Form = void 0;
 var Form_module_css_1 = require("./Form.module.css");
+var Stepper_1 = require("../Stepper/Stepper");
+var Button_1 = require("../Button/Button");
 exports.Form = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
-    return (React.createElement("form", __assign({}, rest, { className: Form_module_css_1["default"].form }), children));
+    return (React.createElement("form", __assign({}, rest, { className: Form_module_css_1["default"].form }),
+        React.createElement(Stepper_1.Stepper, null,
+            React.createElement("h1", null, "1"),
+            React.createElement("h1", null, "2"),
+            React.createElement("h1", null, "3")),
+        children,
+        React.createElement("div", { className: Form_module_css_1["default"].btn_block },
+            React.createElement(Button_1.Button, { tag: "\u041D\u0430\u0437\u0430\u0434", theme: "outline", type: "button" }),
+            React.createElement(Button_1.Button, { tag: "\u0414\u0430\u043B\u0435\u0435", theme: "primary", type: "button" }))));
 };

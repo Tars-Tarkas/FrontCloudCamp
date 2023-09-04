@@ -5,9 +5,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { Input } from "../../components/Input/Input";
 import { Select } from "../../components/Select/Select";
-import { Button } from "../../components/Button/Button";
+
 import { Form } from "../../components/Form/Form";
-import { Stepper } from "../../components/Stepper/Stepper";
 
 export const StepOne: FC = () => {
   const nicknameRegExp = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
@@ -77,7 +76,6 @@ export const StepOne: FC = () => {
         handleSubmit(e);
       }}
     >
-      <Stepper />
       <Input
         type="nickname"
         name="nickname"
@@ -117,15 +115,6 @@ export const StepOne: FC = () => {
         <option value="man">Man</option>
         <option value="woman">Woman</option>
       </Select>
-      <div className={styles.btn_block}>
-        <Button
-          tag="Назад"
-          theme="outline"
-          type="button"
-          onClick={handelClickBack}
-        />
-        <Button tag="Далее" theme="primary" />
-      </div>
     </Form>
   );
 };

@@ -66,7 +66,7 @@ export const Main: FC = () => {
           className={styles.input}
           type="tel"
           name="phone"
-          required
+          // required
           onChange={(e) => handleChange(e)}
           value={phone}
           placeholder="+7 999 999-99-99"

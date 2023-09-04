@@ -38,7 +38,7 @@ export const StepThree: FC = () => {
         handleSubmit(e);
       }}
     >
-      <Stepper />
+      {/* <Stepper /> */}
       <TextArea
         name="about"
         label="About"
@@ -48,10 +48,7 @@ export const StepThree: FC = () => {
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      <div className={styles.btn_block}>
-        <Button tag="Назад" theme="outline" type="button" />
-        <Button tag="Отправить" theme="primary" type="submit" />
-      </div>
+
       <Modal />
     </Form>
   );

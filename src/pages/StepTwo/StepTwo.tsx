@@ -86,7 +86,7 @@ export const StepTwo: FC = () => {
   };
   return (
     <Form onSubmit={handleSubmit}>
-      <Stepper />
+      {/* <Stepper /> */}
       <div className={styles.advantages}>
         <label className={styles.label}>Advantages</label>
         {arrayInput.map((item, index) => {
@@ -117,10 +117,6 @@ export const StepTwo: FC = () => {
         <Radio label="1" name="radiogroup" value={"1"} />
         <Radio label="2" name="radiogroup" value={"2"} />
         <Radio label="3" name="radiogroup" value={"3"} />
-      </div>
-      <div className={styles.btn_block}>
-        <Button tag="Назад" theme="outline" type="button" />
-        <Button tag="Далее" theme="primary" />
       </div>
     </Form>
   );

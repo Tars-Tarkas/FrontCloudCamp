@@ -47,7 +47,9 @@ exports.Main = function () {
         React.createElement(Header_1.Header, null),
         React.createElement("div", { className: Main_module_css_1["default"].input__block },
             React.createElement("label", { className: Main_module_css_1["default"].label }, "\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430"),
-            React.createElement("input", { className: Main_module_css_1["default"].input, type: "tel", name: "phone", required: true, onChange: function (e) { return handleChange(e); }, value: phone, placeholder: "+7 999 999-99-99" })),
+            React.createElement("input", { className: Main_module_css_1["default"].input, type: "tel", name: "phone", 
+                // required
+                onChange: function (e) { return handleChange(e); }, value: phone, placeholder: "+7 999 999-99-99" })),
         React.createElement("div", { className: Main_module_css_1["default"].input__block },
             React.createElement("label", { className: Main_module_css_1["default"].label }, "Email"),
             React.createElement("input", { className: Main_module_css_1["default"].input, type: "email", name: "email", required: true, defaultValue: "ddd@ddd.er" })),

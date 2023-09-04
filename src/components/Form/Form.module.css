@@ -7,3 +7,7 @@
 
   padding: 62px 110px 80px 110px;
 }
+.btn_block {
+  display: flex;
+  justify-content: space-between;
+}

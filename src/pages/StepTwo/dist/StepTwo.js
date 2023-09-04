@@ -13,8 +13,6 @@ var react_router_dom_1 = require("react-router-dom");
 var StepTwo_module_css_1 = require("./StepTwo.module.css");
 var Form_1 = require("../../components/Form/Form");
 var Input_1 = require("../../components/Input/Input");
-var Button_1 = require("../../components/Button/Button");
-var Stepper_1 = require("../../components/Stepper/Stepper");
 var Checkbox_1 = require("../../components/Checkbox/Checkbox");
 var Radio_1 = require("../../components/Radio/Radio");
 exports.StepTwo = function () {
@@ -62,7 +60,6 @@ exports.StepTwo = function () {
         navigate("/stepthree");
     };
     return (React.createElement(Form_1.Form, { onSubmit: handleSubmit },
-        React.createElement(Stepper_1.Stepper, null),
         React.createElement("div", { className: StepTwo_module_css_1["default"].advantages },
             React.createElement("label", { className: StepTwo_module_css_1["default"].label }, "Advantages"),
             arrayInput.map(function (item, index) {
@@ -80,8 +77,5 @@ exports.StepTwo = function () {
             React.createElement("label", { className: StepTwo_module_css_1["default"].label }, "Radio group"),
             React.createElement(Radio_1.Radio, { label: "1", name: "radiogroup", value: "1" }),
             React.createElement(Radio_1.Radio, { label: "2", name: "radiogroup", value: "2" }),
-            React.createElement(Radio_1.Radio, { label: "3", name: "radiogroup", value: "3" })),
-        React.createElement("div", { className: StepTwo_module_css_1["default"].btn_block },
-            React.createElement(Button_1.Button, { tag: "\u041D\u0430\u0437\u0430\u0434", theme: "outline", type: "button" }),
-            React.createElement(Button_1.Button, { tag: "\u0414\u0430\u043B\u0435\u0435", theme: "primary" }))));
+            React.createElement(Radio_1.Radio, { label: "3", name: "radiogroup", value: "3" }))));
 };
