@@ -3,7 +3,7 @@ import styles from "./Input.module.css";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
-  name: string;
+  name?: string;
   label?: string;
   error?: string;
 }
