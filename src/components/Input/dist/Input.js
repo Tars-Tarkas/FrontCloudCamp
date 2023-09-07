@@ -24,10 +24,13 @@ var __rest = (this && this.__rest) || function (s, e) {
 exports.__esModule = true;
 exports.Input = void 0;
 var Input_module_css_1 = require("./Input.module.css");
+var react_hook_form_1 = require("react-hook-form");
 exports.Input = function (_a) {
-    var type = _a.type, name = _a.name, error = _a.error, label = _a.label, rest = __rest(_a, ["type", "name", "error", "label"]);
+    var name = _a.name, error = _a.error, label = _a.label, props = __rest(_a, ["name", "error", "label"]);
+    var _b = react_hook_form_1.useFormContext(), register = _b.register, formState = _b.formState;
     return (React.createElement("div", { className: Input_module_css_1["default"].block },
-        label && (React.createElement("label", { htmlFor: name, className: Input_module_css_1["default"].label }, label)),
-        React.createElement("input", __assign({ "aria-invalid": error ? "true" : "false", type: name, name: name }, rest, { className: Input_module_css_1["default"].input })),
+        label && (React.createElement("label", { htmlFor: name, className: Input_module_css_1["default"].label },
+            label,
+            React.createElement("input", __assign({}, register(name), { "aria-invalid": error ? "true" : "false" }, props, { className: Input_module_css_1["default"].input })))),
         error && (React.createElement("span", { role: "alert", className: Input_module_css_1["default"].error }, error))));
 };

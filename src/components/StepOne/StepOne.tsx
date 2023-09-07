@@ -4,12 +4,10 @@ import { Input } from "../Input/Input";
 import { Select } from "../Select/Select";
 
 export const StepOne: FC = () => {
-  console.log(useFormContext());
-
   const { register, formState } = useFormContext();
   return (
     <>
-      <Input
+      <input
         type="hidden"
         {...register("stepone", {
           shouldUnregister: true,
@@ -19,19 +17,19 @@ export const StepOne: FC = () => {
         label="nickname"
         type="text"
         name="nickname"
-        error={formState.errors.root?.message}
+        // error={formState.errors.root?.message}
       />
       <Input
         label="name"
         type="text"
         name="name"
-        error={formState.errors.root?.message}
+        // error={formState.errors.root?.message}
       />
       <Input
         label="sername"
         type="text"
         name="sername"
-        error={formState.errors.root?.message}
+        // error={formState.errors.root?.message}
       />
       <Select name="sex">
         <option disabled>Не выбрано</option>

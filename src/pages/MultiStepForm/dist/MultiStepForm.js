@@ -49,52 +49,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.MultiStepForm = void 0;
 var react_1 = require("react");
-var yup = require("yup");
 var react_hook_form_1 = require("react-hook-form");
 var Button_1 = require("../../components/Button/Button");
 var StepOne_1 = require("../../components/StepOne/StepOne");
+var StepTwo_1 = require("../../components/StepTwo/StepTwo");
+var StepThree_1 = require("../../components/StepThree/StepThree");
 var yup_1 = require("@hookform/resolvers/yup");
+var MultiStepForm_module_css_1 = require("./MultiStepForm.module.css");
+var validationSchema_1 = require("./validationSchema");
 function getStepContent(step) {
     switch (step) {
         case 0:
             return React.createElement(StepOne_1.StepOne, null);
-        // case 1:
-        //   return <Step2 />;
-        // case 2:
-        //   return <Step3 />;
+        case 1:
+            return React.createElement(StepTwo_1.StepTwo, null);
+        case 2:
+            return React.createElement(StepThree_1.StepThree, null);
         case 3:
         default:
             return "Unknown step";
     }
 }
-var nicknameRegExp = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
-var nameRegExp = /^[а-яА-Яa-zA-Z0-9]+$/;
-var validationSchema = yup.object().shape({
-    nickname: yup
-        .string()
-        .max(30)
-        .matches(nicknameRegExp, "Некорректно заполнен, только буквы и цифры, макс. длина 30 символов")
-        .required("Введите никнайм"),
-    name: yup
-        .string()
-        .max(50)
-        .matches(nameRegExp, "Некорректно заполнен, только буквы, макс. длина 50 символов")
-        .required("Введите имя"),
-    sername: yup
-        .string()
-        .max(50)
-        .matches(nameRegExp, "Некорректно заполнен, только буквы, макс. длина 50 символов")
-        .required("Введите имя пользователя"),
-    sex: yup
-        .string()
-        .oneOf(["man", "woman"], "Не выбран пол")
-        .required("Выберите пол")
-});
 var defaultValues = {
     nickname: "",
     name: "",
     sername: "",
-    sex: ""
+    sex: "",
+    about: ""
 };
 exports.MultiStepForm = function () {
     var _a = react_1.useState(0), activeStep = _a[0], setActiveStep = _a[1];
@@ -102,16 +83,15 @@ exports.MultiStepForm = function () {
     var onSubmit = function (data) {
         console.log(JSON.stringify(data));
         alert(JSON.stringify(data));
-        // handleNext();
+        handleNext();
     };
-    var currentValidationSchema = validationSchema[activeStep];
+    var currentValidationSchema = validationSchema_1.validationSchema[activeStep];
     var methods = react_hook_form_1.useForm({
-        // shouldUnregister: false,
         defaultValues: defaultValues,
         resolver: yup_1.yupResolver(currentValidationSchema),
         mode: "all"
     });
-    var handleSubmit = methods.handleSubmit, reset = methods.reset, trigger = methods.trigger, formState = methods.formState;
+    var handleSubmit = methods.handleSubmit, trigger = methods.trigger, formState = methods.formState;
     var handleNext = function () { return __awaiter(void 0, void 0, void 0, function () {
         var isStepValid;
         return __generator(this, function (_a) {
@@ -128,11 +108,12 @@ exports.MultiStepForm = function () {
     var handleBack = function () {
         setActiveStep(function (prevActiveStep) { return prevActiveStep - 1; });
     };
+    console.log(activeStep);
     return (React.createElement(React.Fragment, null,
         React.createElement(react_hook_form_1.FormProvider, __assign({}, methods),
-            React.createElement("form", null,
+            React.createElement("form", { className: MultiStepForm_module_css_1["default"].form },
                 React.createElement("div", null, getStepContent(activeStep)),
-                React.createElement("div", null,
-                    React.createElement(Button_1.Button, { tag: "\u041D\u0430\u0437\u0430\u0434", theme: "outline", type: "button", onClick: handleBack }),
-                    activeStep === steps.length - 1 ? (React.createElement(Button_1.Button, { onClick: handleSubmit(onSubmit) }, "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C")) : (React.createElement(Button_1.Button, { onClick: handleNext, disabled: !formState.isValid }, "\u0414\u0430\u043B\u0435\u0435")))))));
+                React.createElement("div", { className: MultiStepForm_module_css_1["default"].btn_block },
+                    React.createElement(Button_1.Button, { disabled: activeStep === 0, tag: "\u041D\u0430\u0437\u0430\u0434", theme: "outline", type: "button", onClick: handleBack }),
+                    activeStep === steps.length - 1 ? (React.createElement(Button_1.Button, { onClick: handleSubmit(onSubmit) }, "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C")) : (React.createElement(Button_1.Button, { onClick: handleNext, disabled: !formState.isValid, theme: "primary" }, "\u0414\u0430\u043B\u0435\u0435")))))));
 };
